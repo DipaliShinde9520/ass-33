@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog Box Modal</title>
+    <style>
+        /* Basic Styling */
+        .main-heading{
+            text-align: center;
+            font-size: 2em;
+        }
+        .main-img {
+            height: 500px;
+            width: 680px;
+            object-fit: cover;
+        }
+        .content{
+            margin-left: 30px;
+            border: 2px solid black;
+            position: relative;
+            left: 20px;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .main-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .course{
+            margin-left: 100px;
+        }
+        .course-elements{
+            margin-left: 150px;
+            margin-top: 10px;
+        }
+        .btn-enroll-now{
+            display: block;
+            margin: 40px auto;
+            width: 180px;
+            padding: 10px;
+            border-radius: 30px;
+            border: none;
+            color: white;
+            background-color: #4CAF50;
+            font-size: medium;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-enroll-now:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        /* Overlay and Modal */
+        .overlay{
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal{
+            background-color: white;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+        }
+        .form-input{
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-input:focus{
+            border-color: #4CAF50;
+            outline: none;
+        }
+        .proceed-btn{
+            display: block;
+            margin: 40px auto;
+            width: 200px;
+            padding: 10px;
+            border-radius: 30px;
+            border: none;
+            color: white;
+            background-color: #4CAF50;
+            font-size: medium;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .proceed-btn:hover {
+            background-color: #45a049;
+        }
+        .close-icon{
+            height: 25px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .course-elements {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="main-heading">Welcome to the Fitness and Wellness Program</h1> <br>
+    <div class="main-container">
+        <img class="main-img" src="./img/yoga-fitness-img.jpeg" alt="fitness poster">
+
+        <div class="content">
+            <h3>🏋️‍♂️ Transform Your Body and Mind 🌱</h3>
+            <h3>⭐ Achieve Your Fitness Goals in Just 6 Months! 💪</h3>
+            <h4 class="course">Our Fitness Program Includes</h4>
+            <ul>
+                <li class="course-elements">Yoga for Flexibility 🧘‍♀️</li>
+                <li class="course-elements">Strength Training 🏋️‍♂️</li>
+                <li class="course-elements">Cardio Workouts 🏃‍♀️</li>
+                <li class="course-elements">Healthy Eating Plans 🥗</li>
+                <li class="course-elements">Meditation & Mindfulness 🧘‍♂️</li>
+                <li class="course-elements">Weight Loss Programs ⚖️</li>
+                <li class="course-elements">Personal Training Sessions 🏅</li>
+                <li class="course-elements">Group Fitness Classes 👫</li>
+                <li class="course-elements">Outdoor Activities 🌳</li>
+                <li class="course-elements">Wellness Coaching 💡</li>
+            </ul>
+            <button type="button" class="btn-enroll-now" onclick="openModal()">Join Now 🚀</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="modal">
+            <img src="./img/cancel-img.png" alt="close" class="close-icon" id="close" onclick="closeModal()">
+            <h2 style="text-align: center;">Enrollment Form</h2>
+            <form class="form">
+                <input type="text" placeholder="Enter Your Name" class="form-input" required>
+                <input type="email" placeholder="Enter Your Email" class="form-input" required>
+                <input type="number" placeholder="Enter Your Contact Number" class="form-input" required>
+                <input type="text" placeholder="Enter Your Gym/Club Name" class="form-input" required>
+                <input type="text" placeholder="Enter Your City" class="form-input" required>
+                <button type="submit" class="proceed-btn">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal(){
+            const overlayElement = document.getElementById('overlay');
+            overlayElement.style.display = 'flex';
+        }
+        function closeModal(){
+            const overlayElement = document.getElementById('overlay');
+            overlayElement.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
